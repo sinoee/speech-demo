@@ -1,0 +1,45 @@
+MRCPSynth
+Synopsis
+Performs MRCP synthesis.
+
+Syntax
+MRCPSynth (prompt, grammar, options)
+
+Description
+This application establishes an MRCP session for speech synthesis.
+
+Input parameters
+·         prompt [required]
+
+A prompt specified as a plain text, an SSML content, or by means of a file or URI reference.
+
+·         options
+
+Additional parameters such as an MRCP profile, synthesizer header fields to be used.
+
+p - profile to use in mrcp.conf
+
+i - digits to allow the TTS to be interrupted with
+
+f - filename on disk to store audio to (audio not stored if not specified or empty)
+
+l - language to use (e.g. "en-GB", "en-US", "en-AU", etc.)
+
+v - voice name to use (e.g. "Daniel", "Karin", etc.)
+
+g - voice gender to use (e.g. "male", "female")
+
+a - voice age to use
+
+pv - prosody volume (silent/x-soft/soft/medium/load/x-loud/default)
+
+pr - prosody rate (x-slow/slow/medium/fast/x-fast/default)
+
+ll - load lexicon (true/false)
+
+vv - voice variant
+
+Return parameters
+·         SYNTHSTATUS
+
+If synthesis completed successfully, the variable ${SYNTHSTATUS} is set to OK; otherwise, if an error occurred, the variable ${SYNTHSTATUS} is set to ERROR. If the caller hung up while the synthesis was in-progress, the variable ${SYNTHSTATUS} is set to INTERRUPTED.
