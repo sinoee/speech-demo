@@ -1,0 +1,84 @@
+SynthAndRecog
+Synopsis
+Plays a synthesized prompt and waits for speech to be recognized.
+
+Syntax
+SynthAndRecog(prompt, grammar, options)
+
+Description
+This application establishes two MRCP sessions: one for speech synthesis and the other for speech recognition. Once the user starts speaking (barge-in occurred), the synthesis session is stopped, and the recognition engine starts processing the input. Once recognition completes, the application exits and returns results to the Asterisk dialplan.
+
+Input parameters
+·         prompt [required]
+
+A prompt specified as a plain text, an SSML content, or by means of a file or URI reference.
+
+·         grammar [required]
+
+An inline or URI grammar to be used for recognition.
+
+·         options
+
+Additional parameters such as an MRCP profile, synthesizer and recognizer header fields to be used.
+
+p - profile to use in mrcp.conf
+
+t - recognition timeout (msec)
+
+b - bargein value (no barge-in allowed=0, barge-in allowed=1)
+
+gd – grammar delimiters
+
+ct - confidence threshold (0.0 - 1.0)
+
+sl - sensitivity level (0.0 - 1.0)
+
+sva - speed vs accuracy (0.0 - 1.0)
+
+nb - n-best list length
+
+nit - no input timeout (msec)
+
+sct - speech complete timeout (msec)
+
+sint - speech incomplete timeout (msec)
+
+dit - DTMF interdigit timeout (msec)
+
+dtt - DTMF terminate timout (msec)
+
+dttc - DTMF terminate characters
+
+sw - save waveform (true/false)
+
+nac - new audio channel (true/false)
+
+spl - speech language (en-US/en-GB/etc.)
+
+rm - recognition mode (normal/hotword)
+
+hmaxd - hotword max duration (msec)
+
+hmind - hotword min duration (msec)
+
+cdb - clear DTMF buffer (true/false)
+
+enm - early no match (true/false)
+
+iwu - input waveform URI
+
+mt - media type
+
+pv - prosody volume (silent/x-soft/soft/medium/load/x-loud/default)
+
+pr - prosody rate (x-slow/slow/medium/fast/x-fast/default)
+
+vn - voice name to use (e.g. "Daniel", "Karin", etc.)
+
+vg - voice gender to use (e.g. "male", "female")
+
+vv - voice variant
+
+a - voice age to use
+
+uer - URI-encoded results (1: URI-encode NLMSL results, 0: do not encode)
