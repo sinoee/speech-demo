@@ -1,0 +1,93 @@
+MRCPRecog
+Synopsis
+Performs MRCP recognition.
+
+Syntax
+MRCPRecog(grammar, options)
+
+Description
+This application establishes an MRCP session for speech recognition and optionally plays a prompt file to the user. Once recognition completes, the application exits and returns results to the Asterisk dialplan.
+
+Input parameters
+·         grammar [required]
+
+An inline or URI grammar to be used for recognition.
+
+·         options
+
+Additional parameters such as an MRCP profile, recognizer header fields to be used.
+
+p - profile to use in mrcp.conf
+
+i - digits to allow recognition to be interrupted with (by default DTMFs are sent to the MRCP server to recognize; otherwise, if "any" or other digits are specified, recognition will be interrupted)
+
+f - filename on play (if empty or not specified, no file is played)
+
+t - recognition timeout (msec)
+
+b - bargein value (no barge-in allowed=0, barge-in allowed=1)
+
+gd – grammar delimiters
+
+ct - confidence threshold (0.0 - 1.0)
+
+sl - sensitivity level (0.0 - 1.0)
+
+sva - speed vs accuracy (0.0 - 1.0)
+
+nb - n-best list length
+
+nit - no input timeout (msec)
+
+sit - start input timers (true/false)
+
+sct - speech complete timeout (msec)
+
+sint - speech incomplete timeout (msec)
+
+dit - DTMF interdigit timeout (msec)
+
+dtt - DTMF terminate timout (msec)
+
+dttc - DTMF terminate characters
+
+sw - save waveform (true/false)
+
+nac - new audio channel (true/false)
+
+spl - speech language (en-US/en-GB/etc.)
+
+rm - recognition mode (normal/hotword)
+
+hmaxd - hotword max duration (msec)
+
+hmind - hotword min duration (msec)
+
+cdb - clear DTMF buffer (true/false)
+
+enm - early no match (true/false)
+
+iwu - input waveform URI
+
+mt - media type
+
+epe: exit on play error (1: terminate recognition on file play error, 0: continue even if file play fails)
+
+uer: URI-encoded results (1: URI-encode NLMSL results, 0: do not encode)
+
+Return parameters
+·         RECOGSTATUS
+
+If recognition completed, the variable ${RECOGSTATUS} is set to OK. Otherwise, if recognition could not be started, the variable ${RECOGSTATUS} is set to ERROR. If the caller hung up while recognition was still in-progress, the variable ${RECOGSTATUS} is set to INTERRUPTED.
+
+·         RECOG_COMPLETION_CAUSE
+
+The variable ${RECOG_COMPLETION_CAUSE} indicates whether recognition completed successfully with a match or an error occurred.
+
+("000" - success, "001" - nomatch, "002" - noinput)
+
+·         RECOG_RESULT
+
+If recognition completed successfully, the variable ${RECOG_RESULT} is set to an NLSML result received from the MRCP server. Alternatively, the recognition result data can be retrieved by using the following dialplan functions RECOG_CONFIDENCE(), RECOG_GRAMMAR(), RECOG_INPUT(), and RECOG_INSTANCE().
+
+ 
