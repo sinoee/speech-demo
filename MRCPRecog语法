@@ -1,6 +1,6 @@
 原型：MRCPRecog (grammar, options)
 grammar ---- 语法文件，可以是一个xml文件
-options  ---- 选项，具体见下面的描述
+options ---- 选项，具体见下面的描述
 
 MRCPRecog的选项参数
 Name                            Description
@@ -24,7 +24,7 @@ ct  -----  confidence threshold (0.0 - 1.0)
                置信度阈值（不明白什么意思）
  
 sl   -----  sensitivity level (0.0 - 1.0)    灵敏度等级
-sva   -----  speed versus accuracy (0.0 - 1.0)  速度和准确性
+sva  -----  speed versus accuracy (0.0 - 1.0)  速度和准确性
  
 nb  -----  n-best list length
  
@@ -64,11 +64,11 @@ epe
 exit on play error (1: terminate recognition on file play error, 0: continue even if file play fails)
 播放失败时的处理方式
 1---结束识别
-0--- 继续识别
+0---继续识别
  
 uer  ----  URI-encoded results (1: URI-encode NLMSL results, 0: do not encode)
-1--- 编码成NLMSL 结果
-0--- 不要编码
+1---编码成NLMSL 结果
+0---不要编码
  
 od  ----  Output (prompt) delimiters.  输出的分隔符
  
@@ -80,4 +80,4 @@ Start input timers value
 启动输入计时器值
 0 --- 不
 1 --- 允许，从识别开始
-2 ---  自动，等提示音播放完毕再开始
+2 --- 自动，等提示音播放完毕再开始
